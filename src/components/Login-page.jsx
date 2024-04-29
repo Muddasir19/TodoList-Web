@@ -14,7 +14,7 @@ const Login = () => {
 
     // used to go to homepage after login
     //navigate("/")
-    //console.log(result)
+    console.log(result)
 
   };
 
@@ -24,8 +24,9 @@ const Login = () => {
 
 
   return (
-    <div>
-      {
+    <div>{!user ? <button  onClick={signInWithGoogle}>Sign in With Google</button> : ""}
+      
+      {/* {
         !user 
           ? (<button  onClick={signInWithGoogle}>Sign in With Google</button>)
           : (<div className="userDetail">
@@ -33,10 +34,7 @@ const Login = () => {
             <img src={user?.photoURL || ""} height="50" />
             <button onClick={signUserOut}>Logout</button>
             </div>)
-      }
-
-      
-      
+      } */}
     </div>
   );
 };
