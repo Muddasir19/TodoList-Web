@@ -27,7 +27,7 @@ const Login = () => {
     <div>
       {
         !user 
-          ? (<button onClick={signInWithGoogle}>Sign in With Google</button>)
+          ? (<button  onClick={signInWithGoogle}>Sign in With Google</button>)
           : (<div className="userDetail">
             <p> {user?.displayName} </p>
             <img src={user?.photoURL || ""} height="50" />
