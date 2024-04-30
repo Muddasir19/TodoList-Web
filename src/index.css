@@ -1,3 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.icon:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
+.task:hover{
+    cursor:pointer;
+    background-color: beige;
+}
+.tag:hover{
+    color: red;
+}

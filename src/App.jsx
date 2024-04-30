@@ -1,4 +1,3 @@
-import Login from "./components/Login-page";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Taskview from "./components/Taskview";
@@ -6,17 +5,18 @@ import Taskview from "./components/Taskview";
 const App = () => {
   return (
     <div className="">
-      <Navbar/>
-      <div className="d-flex">
-        <Sidebar />
-        <div>
+      <Navbar />
+      <div className="d-flex gap-1 w-[100vh]">
         
-        <main className="m-2">
-          <h1>Welcome</h1>
-          <Taskview/>
-        </main>
-
+        <Sidebar />
+        
+        <div className="max-w-[calc(100vh-20rem)]">
+          <main className="m-2">
+            <h1 className="fs-1">Welcome</h1>
+            <Taskview />
+          </main>
         </div>
+        
         
       </div>
     </div>
