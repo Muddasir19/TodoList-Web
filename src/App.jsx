@@ -6,11 +6,11 @@ const App = () => {
   return (
     <div className="">
       <Navbar />
-      <div className="d-flex gap-1 w-[100vh]">
+      <div className="d-flex">
         
         <Sidebar />
         
-        <div className="max-w-[calc(100vh-20rem)]">
+        <div className="container min-vw-80">
           <main className="m-2">
             <h1 className="fs-1">Welcome</h1>
             <Taskview />
