@@ -24,18 +24,56 @@ const Login = () => {
 
 
   return (
-    <div>{!user ? <button  className="btn btn-secondary" onClick={signInWithGoogle}>Sign in With Google</button> : 
-    <button className="btn btn-danger" onClick={signUserOut}>LogOut</button>}
+    <div className="d-flex " >
+
+       {user ? (<><div  className=" mb-1 d-flex justify-content-center dropdown bg-light">
+      <img
+            src={user?.photoURL || ""}
+            alt="User Profile Pic"
+            width={40}
+            className="rounded-circle me-2"
+          />
+        <a
+          href="#"
+          className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+          id="dropdownUser2"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          
+          <strong>{user?.displayName}</strong>
+        </a>
+        <ul
+          className="dropdown-menu text-small shadow"
+          aria-labelledby="dropdownUser2"
+        >
+          <li>
+            <a className="dropdown-item" href="#">
+              Profile
+            </a>
+          </li>
+          <li>
+            <a className="dropdown-item" href="#">
+              Settings
+            </a>
+          </li>
+          <li>
+            <hr className="dropdown-divider" />
+          </li>
+          <li>
+            <button onClick={signUserOut} className="dropdown-item  " href="#">
+              Sign out
+            </button>
+          </li>
+        </ul>
+      </div>  </> )  :""}
       
-      {/* {
-        !user 
-          ? (<button  onClick={signInWithGoogle}>Sign in With Google</button>)
-          : (<div className="userDetail">
-            <p> {user?.displayName} </p>
-            <img src={user?.photoURL || ""} height="50" />
-            <button onClick={signUserOut}>Logout</button>
-            </div>)
-      } */}
+      
+      
+      {/* {!user ? <button  className="btn btn-secondary" onClick={signInWithGoogle}>Sign in With Google</button> : 
+    <button className="btn btn-danger" onClick={signUserOut}>LogOut</button>}
+       */}
+  
     </div>
   );
 };

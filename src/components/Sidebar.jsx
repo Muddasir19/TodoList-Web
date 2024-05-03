@@ -13,7 +13,7 @@ const Sidebar = ({onOpen}) => {
   return (
     <div className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-1 mt-1 shadow-xl shadow-blue-gray-900/5">
       
-      {user ? (<><div  className=" mb-1 d-flex justify-content-center dropdown bg-light border-bottom">
+      {/* {user ? (<><div  className=" mb-1 d-flex justify-content-center dropdown bg-light border-bottom">
       <img
             src={user?.photoURL || ""}
             alt="User Profile Pic"
@@ -53,7 +53,7 @@ const Sidebar = ({onOpen}) => {
             </button>
           </li>
         </ul>
-      </div>  </> )  :""}
+      </div>  </> )  :""} */}
 
       
       <div className="d-flex  flex-column " style={{ width: 280 }}>

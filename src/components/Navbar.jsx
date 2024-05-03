@@ -3,6 +3,7 @@ import Login from './Login-page'
 import { auth} from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth"
 
+
 const Navbar = () => {
   const [user,loading,error] = useAuthState(auth);
   
@@ -35,40 +36,54 @@ const Navbar = () => {
           </a>
         </li>
         
-        {/* <li className="nav-item dropdown">
-          <a
-            className="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Extra
-          </a>
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-          </ul>
-        </li> */}
+        
         
       </ul>
+
+
+      {/* {user ? (<><div  className=" mb-1 d-flex justify-content-center dropdown bg-light border-bottom">
+      <img
+            src={user?.photoURL || ""}
+            alt="User Profile Pic"
+            width={66}
+            className="rounded-circle me-2"
+          />
+        <a
+          href="#"
+          className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+          id="dropdownUser2"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          
+          <strong>{user?.displayName}</strong>
+        </a>
+        <ul
+          className="dropdown-menu text-small shadow"
+          aria-labelledby="dropdownUser2"
+        >
+          <li>
+            <a className="dropdown-item" href="#">
+              Profile
+            </a>
+          </li>
+          <li>
+            <a className="dropdown-item" href="#">
+              Settings
+            </a>
+          </li>
+          <li>
+            <hr className="dropdown-divider" />
+          </li>
+          <li>
+            <button onClick={signUserOut} className="dropdown-item  " href="#">
+              Sign out
+            </button>
+          </li>
+        </ul>
+      </div>  </> )  :""} */}
+
+
       <Login/>
     </div>
   </div>
