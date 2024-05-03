@@ -66,7 +66,7 @@ const Login = () => {
             </button>
           </li>
         </ul>
-      </div>  </> )  :""}
+      </div>  </> )  :<button  className="btn btn-secondary" onClick={signInWithGoogle}>Sign in With Google</button>}
       
       
       
