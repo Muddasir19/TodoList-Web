@@ -4,13 +4,13 @@ import { ErrorMessage,Field, Form, Formik } from "formik";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../config/firebase";
 
-import * as Yup from "yup";
+// import * as Yup from "yup";
 
-const contactsSchemaValidation = Yup.object().shape({
-    Name:Yup.string().required("Name is Required"),
-    Description:Yup.string().required("Description is Required"),
+// const contactsSchemaValidation = Yup.object().shape({
+//     Name:Yup.string().required("Name is Required"),
+//     Description:Yup.string().required("Description is Required"),
 
-})
+// })
 
 const AddAndUpdateTask = ({ isOpen, onClose , isUpdate, tasks  }) => {
 
@@ -44,7 +44,7 @@ const AddAndUpdateTask = ({ isOpen, onClose , isUpdate, tasks  }) => {
       
       <Modal isOpen={isOpen} onClose={onClose}>
         <Formik
-        validationSchema={contactsSchemaValidation}
+        // validationSchema={contactsSchemaValidation}
 
         
 
