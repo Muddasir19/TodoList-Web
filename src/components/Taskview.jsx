@@ -1,13 +1,32 @@
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../config/firebase";
 
+import AddAndUpdateTask from "./AddAndUpdateTask";
+import useDisclose from "../hooks/useDisclose";
 import Viewtask from "./Viewtask";
 
+
 const Taskview = () => {
+  const {isOpen,onClose,onOpen} = useDisclose();
+
+  
+
   const [tasks, setTasks] = useState([]);
 
-  useEffect(() => {
+  const favouriteTask = (id) => {
+    try {
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  
+
+  
+  
+  useEffect(() => { 
     const getContacts = async () => {
       try {
         const tasksRef = collection(db, "tasks");
@@ -35,19 +54,29 @@ const Taskview = () => {
   }, []);
 
   return (
-    <di className="container">
-      <h1 className="fs-1">This is TaskView</h1>
+   <div className="">
+      
+     
+      <div className="fs-2">Task List Below</div>
 
-      <div className="container bg-light ">
+      <div className="bg-light">
         {tasks.length <= 0 ? (
           <h1>No Task Pending</h1>
         ) : (
           tasks.map((task) => (
-            <Viewtask task={task} key={task.id}/>
+
+            <Viewtask key={task.id} task={task}/>
+            
+            
           ))
         )}
       </div>
-    </di>
+
+      
+
+    </div>
+    
+        
   );
 };
 

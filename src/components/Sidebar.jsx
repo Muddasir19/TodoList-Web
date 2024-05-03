@@ -3,7 +3,7 @@ import { auth} from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth"
 import { signOut } from "firebase/auth";
 
-const Sidebar = () => {
+const Sidebar = ({onOpen}) => {
     const [user,loading,error] = useAuthState(auth);
 
     const signUserOut = async() => {
@@ -48,7 +48,7 @@ const Sidebar = () => {
             <hr className="dropdown-divider" />
           </li>
           <li>
-            <button onClick={signUserOut} className="dropdown-item" href="#">
+            <button onClick={signUserOut} className="dropdown-item  " href="#">
               Sign out
             </button>
           </li>
@@ -87,12 +87,12 @@ const Sidebar = () => {
           
 
           <li>
-            <a href="#" className="tag nav-link link-dark">
+            <button onClick={onOpen} className="tag nav-link link-dark">
               <svg className="bi me-2" width={16} height={16}>
                 <use xlinkHref="#speedometer2" />
               </svg>
               Add Task
-            </a>
+            </button>
           </li>
           <li>
             <a href="#" className="tag nav-link link-dark ">
