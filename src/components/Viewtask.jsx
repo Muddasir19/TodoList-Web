@@ -6,19 +6,25 @@ import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import useDisclose from "../hooks/useDisclose";
 import AddAndUpdateTask from "./AddAndUpdateTask";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../config/firebase";
+import { useState } from "react";
 
 const Viewtask = ({ task }) => {
     const {isOpen,onClose,onOpen} = useDisclose();
+    
 
     const deleteTask = async (id) => {
-        try {
-    
+        try {    
           deleteDoc(doc(db , "tasks", id))
-          
         } catch (error) {
           console.log(error)
         }
       }
+
+      
+
+      
   return (
     <>
     <AddAndUpdateTask isUpdate isOpen={isOpen} onClose={onClose} tasks={task} />
@@ -29,29 +35,32 @@ const Viewtask = ({ task }) => {
           <div className="d-flex gap-2 fs-4 ">
             <div>
               {task.Complete ? (
-                <CiCircleCheck className="icon" />
+                <CiCircleCheck  className="icon" />
               ) : (
-                <FaRegCircle className="icon" />
+                <FaRegCircle on className="icon" />
               )}
             </div>
             <p className="text-decoration-underline">{task.Name}</p>
-            {/* <p className="text-decoration-underline">{task.id}</p> */}
+            
           </div>
 
           <div className="d-flex gap-2 fs-4  ">
             <div>
               {task.Favourite ? (
-                <FaHeart className="icon" />
+                <FaHeart  
+                className="icon" />
               ) : (
-                <CiHeart className="icon" />
+                <CiHeart  
+                className="icon" />
               )}
             </div>
             <div>
-              {task.Complete ? (
-                <MdDelete onClick={deleteTask} className="icon" />
-              ) : (
-                ""
-              )}
+              {
+               task.Complete ? (
+                <MdDelete onClick={()=>deleteTask(task.id)} className="icon" />
+              
+               ) : ("" )
+              }
             </div>
 
             <FaRegEdit onClick={onOpen} className="icon" />

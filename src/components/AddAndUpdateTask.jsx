@@ -12,7 +12,7 @@ import { db } from "../config/firebase";
 
 // })
 
-const AddAndUpdateTask = ({ isOpen, onClose , isUpdate, tasks  }) => {
+const AddAndUpdateTask = ({ isOpen, onClose , isUpdate, tasks }) => {
 
     
     const addTask = async(task) => {
@@ -26,19 +26,25 @@ const AddAndUpdateTask = ({ isOpen, onClose , isUpdate, tasks  }) => {
 
     }
     const updateTask = async(task,id) => {
-        
       try {
           const taskRef = doc(db,"tasks",id)
           await updateDoc(taskRef,task)
-          onClose();
-
-
-          
+          onClose(); 
       } catch (error) {
           console.log(error)
       }
-
   }
+  // if async (fav){
+  //   try {
+  //     const taskRef = doc(db,"tasks",id)
+  //     await updateDoc(taskRef,task)
+  //     onClose(); 
+  // } catch (error) {
+  //     console.log(error)
+  // }
+  // }
+
+   
   return (
     <div>
       
@@ -51,8 +57,9 @@ const AddAndUpdateTask = ({ isOpen, onClose , isUpdate, tasks  }) => {
 
         initialValues={
           isUpdate
-          ? { Name : tasks.Name , Description : tasks.Description, }: 
-          { Name:"", Description:"", }
+          ? { Name : tasks.Name , Description : tasks.Description, 
+          }:
+          { Name:"", Description:"", Favourite:false, Complete:false}
       }
         onSubmit={(values)=>{
             isUpdate 
@@ -61,6 +68,8 @@ const AddAndUpdateTask = ({ isOpen, onClose , isUpdate, tasks  }) => {
 
         }}
         >
+
+          
           <Form className="container bg-info ">
             
             {isUpdate? <div className="fs-3 text-danger fw-bolder ">Edit Task</div>  :<div className="fs-3">Add New Task</div>}
@@ -83,6 +92,10 @@ const AddAndUpdateTask = ({ isOpen, onClose , isUpdate, tasks  }) => {
               <button className="btn btn-success"  type="submit">{isUpdate ? "Update" : "Add"} Task</button>
             </div>
           </Form>
+          
+           
+
+
         </Formik>
       </Modal>
     </div>

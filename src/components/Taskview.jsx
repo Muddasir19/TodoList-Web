@@ -14,18 +14,8 @@ const Taskview = () => {
 
   const [tasks, setTasks] = useState([]);
 
-  const favouriteTask = (id) => {
-    try {
-      
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   
 
-  
-  
   useEffect(() => { 
     const getContacts = async () => {
       try {
@@ -65,7 +55,7 @@ const Taskview = () => {
         ) : (
           tasks.map((task) => (
 
-            <Viewtask key={task.id} task={task}/>
+            <Viewtask key={task.id} task={task} />
             
             
           ))
