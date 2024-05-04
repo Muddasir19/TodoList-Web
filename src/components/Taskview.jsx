@@ -29,12 +29,8 @@ const Taskview = () => {
             };
           });
           setTasks(tasksList);
-          // console.log(tasksList)
-
           return tasksList;
         });
-
-        //console.log(tasks)
       } catch (error) {
         console.log(error);
       }
@@ -56,7 +52,6 @@ const Taskview = () => {
           tasks.map((task) => (
 
             <Viewtask key={task.id} task={task} />
-            
             
           ))
         )}
